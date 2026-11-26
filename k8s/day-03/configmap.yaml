@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-config
+  namespace: demo
+
+data:
+  index.html: |
+    <html>
+      <body>
+        <h1>Welcome to KubeOps!</h1>
+        <h2>Day 3 Kubernetes Deployment</h2>
+        <p>Application successfully deployed using Kubernetes.</p>
+      </body>
+    </html>
