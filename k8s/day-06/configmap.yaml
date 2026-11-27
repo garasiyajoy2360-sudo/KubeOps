@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+
+metadata:
+  name: kubeops-config
+  namespace: demo
+
+data:
+  SPRING_APPLICATION_NAME: kubeops-production
+  LOGGING_LEVEL_ROOT: INFO
