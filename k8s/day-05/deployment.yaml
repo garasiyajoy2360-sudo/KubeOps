@@ -5,6 +5,11 @@ metadata:
   namespace: demo
 spec:
   replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
   selector:
     matchLabels:
       app: kubeops-api
@@ -40,6 +45,13 @@ spec:
             periodSeconds: 15
           envFrom:
             - configMapRef:
-              name: kubeops-config
+                name: kubeops-config
             - secretRef:
-              name: kubeops-secret
+                name: kubeops-secret
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
