@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: image-error
+  namespace: demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: image-error
+  template:
+    metadata:
+      labels:
+        app: image-error
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:invalid-version
+          ports:
+            - containerPort: 80
